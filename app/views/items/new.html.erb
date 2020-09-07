@@ -21,7 +21,12 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%#= f.file_field :image, id:"item-image" %>
+        
+        <%#ここです！0907%>
+        <%#= form_with(model: image, local: true) do %>
+        <%#= f.file_field :item_image, id:"item-image" %>
+        <%# end %>
+
       </div>
     </div>
     <%# /出品画像 %>

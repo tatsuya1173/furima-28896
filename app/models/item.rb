@@ -13,6 +13,6 @@ class Item < ApplicationRecord
  
 
  has_one :exchange
- has_one_attached :item_image
+#  has_one_attached :item_image
 #  <%= image_tag user.avatar.variant(resize_to_fill: [308, 308]) %>  
 end

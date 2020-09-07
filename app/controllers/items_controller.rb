@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_active_hash ,only: [:new, :create, :edit, :update]
   def index
     @item = Item.all()
+    @exchange = Exchange.all()
     
   end
 
@@ -41,6 +42,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])   #itemの該当idのレコードを取ってくる
+    @exchange = Exchange.all()
+    @user = User.find(@item.user_id)
+    @category = Category.find(@item.category_id)
+    @condition = Condition.find(@item.condition_id)
+    @prefecture = Prefecture.find(@item.prefecture_id)
+    @prepare_day = PrepareDay.find(@item.prepare_day_id)
+    @delivery_burden = DeliveryBurden.find(@item.delivery_burden_id)
   end
 
   def back
@@ -57,10 +65,10 @@ class ItemsController < ApplicationController
 
       private
       def items_params   
-        params.require(:item).permit(:user_id, :name, :price, :text, :image,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
+        params.require(:item).permit(:user_id, :name, :price, :text, :item_image,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
       end
       def update_params
-        params.require(:item).permit(:user_id, :name, :price, :text, :image,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
+        params.require(:item).permit(:user_id, :name, :price, :text, :item_image,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
       end
       def correct_user
         @item = Item.find(params[:id])
