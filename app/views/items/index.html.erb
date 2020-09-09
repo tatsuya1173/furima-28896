@@ -133,8 +133,11 @@
           <div class='item-img-content'>
 
           <%#ここです！0907%>
-          <%#= image_tag @image.item_image, class: "item-img" %>  
-          <%#= item.image %>
+          <%# if @item.avatar.attached? %>  
+          <%#= image_tag @image.avatar, class: "item-img" %>  
+          <%#= image_tag @item.avatar.variant(resize_to_fill: [308, 308]) %>  
+          <%# end %>
+          
  
           <%# 商品が売れていればsold outの表示 if exchangeにIDがあれば%>
           <% if @exchange.exists?(item_id: @item.ids)%>

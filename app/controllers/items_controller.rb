@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   def index
     @item = Item.all()
     @exchange = Exchange.all()
-    
+   
   end
 
   def new
@@ -65,10 +65,10 @@ class ItemsController < ApplicationController
 
       private
       def items_params   
-        params.require(:item).permit(:user_id, :name, :price, :text, :item_image,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
+        params.require(:item).permit(:user_id, :name, :price, :text, :avatar,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
       end
       def update_params
-        params.require(:item).permit(:user_id, :name, :price, :text, :item_image,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
+        params.require(:item).permit(:user_id, :name, :price, :text, :avatar,:introduction,:category_id,:prefecture_id,:prepare_day_id,:delivery_burden_id,:condition_id )
       end
       def correct_user
         @item = Item.find(params[:id])
