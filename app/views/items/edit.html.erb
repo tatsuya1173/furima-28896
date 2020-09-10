@@ -10,7 +10,7 @@ app/assets/stylesheets/items/new.css %>
   <%= form_with model: @item do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
@@ -20,9 +20,7 @@ app/assets/stylesheets/items/new.css %>
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
-          <% if @item.avatar.attached? %>
-          <%= image_tag @item.avatar %>
-          <% end %>
+        
         <p>
           クリックしてファイルをアップロード
         </p>
@@ -144,7 +142,8 @@ app/assets/stylesheets/items/new.css %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', "#", class:"back-btn" %>
+      <%=link_to 'もどる', :back, class:"back-btn" %>
+      <%#= link_to 'もどる' , {controller: :item, action: :back} , class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>

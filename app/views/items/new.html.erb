@@ -6,7 +6,9 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item do |f| %>
+    <% if user_signed_in? %>
     <%= f.hidden_field :user_id, :value => @user.id %>
+    <% end%>
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%# render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
@@ -22,10 +24,7 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :avatar , id:"item-image"%>  
-        <%#ここです！0907%>
-        <%#= form_with(model: image, local: true) do %>
-        <%#= f.file_field :item_image, id:"item-image" %>
-        <%# end %>
+       
 
       </div>
     </div>

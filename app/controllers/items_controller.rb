@@ -4,12 +4,15 @@ class ItemsController < ApplicationController
   def index
     @item = Item.all()
     @exchange = Exchange.all()
-   
+  
   end
 
   def new
     @item = Item.new()
-    @user = User.find(current_user.id)
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    else redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -52,7 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def back
-    render :new
+    render :edit
   end
 
   def destroy

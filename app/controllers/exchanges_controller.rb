@@ -1,12 +1,14 @@
 class ExchangesController < ApplicationController
   def index
-    @item = Item.find(params[:item_id])
-
+    @item = Item.find(params[:id])
+    @exchange = Exchange.new();
+ 
   end
 
   def create
+    @item = Item.find(params[:id])
     @exchange = Exchange.new(exchanges_params)
-  
+    @exchange.shipping.build
     if @exchange.save
       redirect_to root_path
     else
