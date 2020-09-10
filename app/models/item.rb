@@ -14,5 +14,5 @@ class Item < ApplicationRecord
 
  has_one :exchange
 
-#  <%= image_tag item.avatar.variant(resize_to_fill: [308, 308]) %>  
+ 
 end
