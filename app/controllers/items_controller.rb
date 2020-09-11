@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
  
       if @item.user_id == current_user.id
         @item.update(update_params)
-        redirect_to_root_path
+        redirect_to root_path
   
       else
       flash[:alert] = '正しく入力されていない箇所があります。'
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
      if @item.user_id == current_user.id
       @item.destroy #destroyメソッドを使用し対象のitemを削除する。
-      redirect_to_root_path
+      redirect_to root_path
      end
   end
 
