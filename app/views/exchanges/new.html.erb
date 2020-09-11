@@ -94,7 +94,6 @@
           <label class="form-text">都道府県</label>
           <span class="indispensable">必須</span>
         </div>
-        <%#= ff.collection_select(:prefecture_id, @prefecture, :id,  :prefecture, {:prompt =>"都道府県を選択してください。"}, {class:"select-box", id:"prefecture"}) %>
         <%= ff.collection_select(:prefecture_id, @prefectures, :id, :prefecture, {:prompt =>"都道府県を選択してください。"}, {class:"select-box", id:"item-prefecture"}) %>
       </div>
       <div class="form-group">

@@ -28,7 +28,7 @@ class ExchangesController < ApplicationController
 
   def exchanges_params   
     params.permit(:id,:user_id,:item_id,shipping_attributes: [:exchanges_id,:city,:post_code,:prefecture_id,:phone_number,:address,:building])
-    # params.permit(:id,:user_id,:item_id,:exchanges_id,:city,:post_code,:prefecture_id,:phone_number,:address,:building)
+   
   end
 
   def set_active_hash  

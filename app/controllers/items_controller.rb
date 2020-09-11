@@ -46,9 +46,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])   #itemの該当idのレコードを取ってくる
     @exchange = Exchange.all()
-    # if user_signed_in?
     @user = User.find(@item.user_id)
-    # end
+ 
     @category = Category.find(@item.category_id)
     @condition = Condition.find(@item.condition_id)
     @prefecture = Prefecture.find(@item.prefecture_id)
