@@ -8,10 +8,13 @@ class ExchangesController < ApplicationController
     end
     @item = Item.find(params[:id])
     @exchange = Exchange.new();
- 
+    @exchange.build_shipping
   end
 
   def create
+    
+   
+    
     if user_signed_in?
       @user = User.find(current_user.id)
     else redirect_to new_user_session_path
@@ -20,8 +23,10 @@ class ExchangesController < ApplicationController
     @item = Item.find(params[:id])
     
     @exchange = Exchange.new(exchanges_params)
-    @exchange.build_shipping
     
+    
+  
+  binding.pry
   
     
     if @exchange.save
