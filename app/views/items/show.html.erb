@@ -9,7 +9,9 @@
     <div class='item-img-content'>
 
       <%#ここです！0907%>
-      <%= image_tag @item.avatar ,class:"item-box-img" %>
+      <% if @item.avatar.attached? %>
+          <%= image_tag item.avatar, class: "item-img" %>     
+          <%end%>
 
 
       <%# 商品が売れている場合は、sold outの表示をしましょう。 %>
@@ -32,7 +34,7 @@
     </div>
 
     <%# ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう%>
-    <% if current_user.id == @item.user_id %>
+    <% if user_signed_in? && current_user.id == @item.user_id %>
     <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>

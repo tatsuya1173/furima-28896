@@ -131,8 +131,9 @@
           <li class='list'>
           <%= link_to item_path(item.id) do %>
           <div class='item-img-content'>
+          <% if item.avatar.attached? %>
           <%= image_tag item.avatar, class: "item-img" %>     
- 
+          <%end%>
           <%# 商品が売れていればsold outの表示 if exchangeにIDがあれば%>
           <% if @exchange.exists?(item_id: @item.ids)%>
           <div class='sold-out'>
